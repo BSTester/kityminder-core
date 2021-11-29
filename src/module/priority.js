@@ -78,7 +78,7 @@ define(function(require, exports, module) {
                     mask.fill(color[0]);
                 }
 
-                number.setContent(value);
+                number.setContent('P'.concat(parseInt(value)-1));
             }
         });
 
