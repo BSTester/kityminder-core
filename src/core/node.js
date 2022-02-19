@@ -26,7 +26,8 @@ define(function(require, exports, module) {
             // 数据
             this.data = {
                 id: utils.guid(),
-                created: +new Date()
+                created: +new Date(),
+                updated: +new Date()
             };
 
             // 绘图容器
@@ -141,6 +142,7 @@ define(function(require, exports, module) {
             else {
                 this.data[key] = value;
             }
+            this.data.updated = +new Date();
             return this;
         },
 
@@ -149,6 +151,7 @@ define(function(require, exports, module) {
          * @param {String} text 文本数据
          */
         setText: function(text) {
+            this.data.updated = +new Date();
             return this.data.text = text;
         },
 

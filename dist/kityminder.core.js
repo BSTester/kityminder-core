@@ -1,9 +1,9 @@
 /*!
  * ====================================================
- * Kity Minder Core - v1.4.50 - 2021-11-30
+ * Kity Minder Core - v1.4.50 - 2022-02-19
  * https://github.com/fex-team/kityminder-core
  * GitHub: https://github.com/fex-team/kityminder-core.git 
- * Copyright (c) 2021 Baidu FEX; Licensed BSD-3-Clause
+ * Copyright (c) 2022 Baidu FEX; Licensed BSD-3-Clause
  * ====================================================
  */
 
@@ -2127,7 +2127,8 @@ _p[21] = {
                 // 数据
                 this.data = {
                     id: utils.guid(),
-                    created: +new Date()
+                    created: +new Date(),
+                    updated: +new Date()
                 };
                 // 绘图容器
                 this.initContainers();
@@ -2226,6 +2227,7 @@ _p[21] = {
                 } else {
                     this.data[key] = value;
                 }
+                this.data.updated = +new Date();
                 return this;
             },
             /**
@@ -2233,6 +2235,7 @@ _p[21] = {
          * @param {String} text 文本数据
          */
             setText: function(text) {
+                this.data.updated = +new Date();
                 return this.data.text = text;
             },
             /**
