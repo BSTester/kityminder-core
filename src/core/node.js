@@ -142,7 +142,10 @@ define(function(require, exports, module) {
             else {
                 this.data[key] = value;
             }
-            this.data.updated = +new Date();
+            if (!this.data.hasOwnProperty('id')) {
+                this.data['id'] = utils.guid();
+            }
+            this.data['updated'] = +new Date();
             return this;
         },
 
@@ -151,7 +154,7 @@ define(function(require, exports, module) {
          * @param {String} text 文本数据
          */
         setText: function(text) {
-            this.data.updated = +new Date();
+            this.data['updated'] = +new Date();
             return this.data.text = text;
         },
 

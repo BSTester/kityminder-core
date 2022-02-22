@@ -1,6 +1,6 @@
 /*!
  * ====================================================
- * Kity Minder Core - v1.4.50 - 2022-02-19
+ * Kity Minder Core - v1.4.50 - 2022-02-22
  * https://github.com/fex-team/kityminder-core
  * GitHub: https://github.com/fex-team/kityminder-core.git 
  * Copyright (c) 2022 Baidu FEX; Licensed BSD-3-Clause
@@ -2227,7 +2227,10 @@ _p[21] = {
                 } else {
                     this.data[key] = value;
                 }
-                this.data.updated = +new Date();
+                if (!this.data.hasOwnProperty("id")) {
+                    this.data["id"] = utils.guid();
+                }
+                this.data["updated"] = +new Date();
                 return this;
             },
             /**
@@ -2235,7 +2238,7 @@ _p[21] = {
          * @param {String} text 文本数据
          */
             setText: function(text) {
-                this.data.updated = +new Date();
+                this.data["updated"] = +new Date();
                 return this.data.text = text;
             },
             /**
