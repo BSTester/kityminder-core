@@ -106,6 +106,7 @@ define(function(require, exports, module) {
 
                     for (var i = 0, ni; ni = _clipboardNodes[i]; i++) {
                         for (var j = 0, node; node = nodes[j]; j++) {
+                            ni['data']['id'] = utils.guid();
                             appendChildNode(node, ni.clone());
                         }
                     }
